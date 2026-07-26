@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>آرین بلاغی | پورتفولیو</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!--  دکمه مدیریت  -->
+    <button id="openAdminBtn" class="floating-admin"> مدیریت</button>
+
+    <!--  هدر  -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-box">
+                    <span class="logo-icon">◆</span>
+                    <span class="logo-text" id="displayName">آرین بلاغی</span>
+                </div>
+                <nav class="main-nav">
+                    <a href="#intro">خانه</a>
+                    <a href="#about">درباره</a>
+                    <a href="#skills">مهارت‌ها</a>
+                    <a href="#work">کارها</a>
+                    <a href="#contact">تماس</a>
+                </nav>
+                <!-- دکمه منو برای موبایل -->
+                <button class="menu-toggle" id="menuToggle" aria-label="منو">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!--  محتوای اصلی  -->
+    <main>
+
+        <!--  بخش معرفی (Hero)  -->
+        <section id="intro" class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <div class="badge">✦ طراح و توسعه‌دهنده</div>
+                    <h1 id="displayNameBig">آرین بلاغی اینالو</h1>
+                    <p class="hero-title" id="displayTitle">توسعه‌دهنده وب | خالق تجربه‌های دیجیتال</p>
+                    <p class="hero-bio" id="displayBio">
+                        من به ساختن فضاهای دیجیتالی که هم زیبا باشند و هم کاربردی، علاقه دارم. 
+                        هر پروژه برای من یک داستان جدید است.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#work" class="btn-primary">مشاهده کارها</a>
+                        <a href="#contact" class="btn-outline">ارتباط با من</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="shape-circle"></div>
+                    <div class="shape-square"></div>
+                    <div class="shape-dots"></div>
+                    <div class="hero-avatar">
+                        <img src="image2.jpg" alt="آرین بلاغی" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  بخش آمار  -->
+        <section class="stats-section">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">۳+</span>
+                    <span class="stat-label">سال تجربه</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">۱۲</span>
+                    <span class="stat-label">پروژه انجام شده</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">۹</span>
+                    <span class="stat-label">مشتری راضی</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">۱۰۰%</span>
+                    <span class="stat-label">تعهد و کیفیت</span>
+                </div>
+            </div>
+        </section>
+
+        <!--  بخش درباره  -->
+        <section id="about" class="about-section">
+            <div class="container about-grid">
+                <div class="about-image">
+                    <div class="image-frame">
+                        <img src="images.jpg" alt="آرین بلاغی" class="about-avatar" />
+                    </div>
+                </div>
+                <div class="about-text">
+                    <span class="section-tag">● درباره من</span>
+                    <h2>طراحی با هدف، <br/>توسعه باعشق</h2>
+                    <p>
+                        من آرین هستم، توسعه‌دهنده وب با بیش از ۳ سال تجربه در خلق تجربه‌های دیجیتال.
+                        اعتقاد من این است که هر خط کد باید داستانی را روایت کند و هر پیکسل باید هدفی داشته باشد.
+                    </p>
+                    <p>
+                        تخصص من در ترکیب طراحی زیبا با کدنویسی تمیز و بهینه است تا نتیجه‌ای باشد که هم کاربر 
+                        از آن لذت ببرد و هم کسب‌وکار شما را رشد دهد.
+                    </p>
+                    <div class="about-features">
+                        <span>✓ طراحی ریسپانسیو</span>
+                        <span>✓ کدنویسی تمیز</span>
+                        <span>✓ تجربه کاربری عالی</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  بخش مهارت‌ها  -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <span class="section-tag center">● تخصص‌ها</span>
+                <h2 class="section-title center">مهارت‌های من</h2>
+                <div id="displaySkills" class="skills-container">
+                    <!-- مهارت‌ها توسط JavaScript ساخته می‌شوند -->
+                </div>
+            </div>
+        </section>
+
+        <!--  بخش پروژه‌ها  -->
+        <section id="work" class="work-section">
+            <div class="container">
+                <span class="section-tag center">● نمونه کارها</span>
+                <h2 class="section-title center">پروژه‌های اخیر</h2>
+                <div id="displayProjects" class="work-grid">
+                    <!-- پروژه‌ها توسط JavaScript ساخته می‌شوند -->
+                </div>
+            </div>
+        </section>
+
+        <!--  بخش تماس  -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info-box">
+                        <span class="section-tag">● ارتباط با من</span>
+                        <h2>بیایید با هم <br/>چیزی بسازیم</h2>
+                        <p>آماده همکاری در پروژه‌های جدید هستم. با من در ارتباط باشید.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <span class="contact-icon">📧</span>
+                                <span id="displayEmail">arian@example.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📞</span>
+                                <span id="displayPhone">۰۹۱۲-XXX-XXXX</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📌</span>
+                                <span id="displayLocation">تهران، ایران</span>
+                            </div>
+                        </div>
+                        <div class="contact-social">
+                            <a href="#">لینکدین</a>
+                            <a href="#">گیت‌هاب</a>
+                            <a href="#">اینستاگرام</a>
+                        </div>
+                    </div>
+                    <div class="contact-form-box">
+                        <div class="form-placeholder">
+                            <span>📩</span>
+                            <p>فرم تماس</p>
+                            <small>ایمیل خود را ارسال کنید</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="main-footer">
+            <div class="container">
+                <p>© ۱۴۰۵ · طراحی شده با <span>♥</span> توسط آرین بلاغی</p>
+            </div>
+        </footer>
+    </main>
+
+    <!--  صفحه مدیریت (پاپ‌آپ جدا)  -->
+    <div id="adminPage" class="admin-overlay hidden">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h2> پنل مدیریت</h2>
+                <button id="closeAdminBtn" class="close-modal">✕</button>
+            </div>
+            <div class="admin-modal-body">
+                <!-- اطلاعات شخصی -->
+                <div class="admin-group">
+                    <h3>اطلاعات شخصی</h3>
+                    <div class="admin-row">
+                        <div class="admin-field">
+                            <label>نام</label>
+                            <input type="text" id="inputName" />
+                        </div>
+                        <div class="admin-field">
+                            <label>عنوان</label>
+                            <input type="text" id="inputTitle" />
+                        </div>
+                    </div>
+                    <div class="admin-field">
+                        <label>بیوگرافی</label>
+                        <textarea id="inputBio" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <!-- مهارت‌ها -->
+                <div class="admin-group">
+                    <h3>مهارت‌ها</h3>
+                    <div class="admin-field">
+                        <label>لیست مهارت‌ها (با کاما جدا کنید)</label>
+                        <input type="text" id="inputSkills" />
+                    </div>
+                </div>
+
+                <!-- پروژه‌ها -->
+                <div class="admin-group">
+                    <h3>پروژه‌ها</h3>
+                    <div id="projectsContainer">
+                        <!-- پروژه‌ها توسط JavaScript ساخته می‌شوند -->
+                    </div>
+                    <button id="addProjectBtn" class="btn-save" >
+                        + افزودن پروژه جدید
+                    </button>
+                </div>
+
+                <!-- تماس -->
+                <div class="admin-group">
+                    <h3>اطلاعات تماس</h3>
+                    <div class="admin-row">
+                        <div class="admin-field">
+                            <label>ایمیل</label>
+                            <input type="text" id="inputEmail" />
+                        </div>
+                        <div class="admin-field">
+                            <label>تلفن</label>
+                            <input type="text" id="inputPhone" />
+                        </div>
+                    </div>
+                    <div class="admin-field">
+                        <label>موقعیت</label>
+                        <input type="text" id="inputLocation" />
+                    </div>
+                </div>
+
+                <!-- نمایش بخش‌ها -->
+                <div class="admin-group">
+                    <h3>نمایش بخش‌ها</h3>
+                    <div class="admin-check-grid">
+                        <label><input type="checkbox" id="chkShowIntro" checked /> معرفی</label>
+                        <label><input type="checkbox" id="chkShowSkills" checked /> مهارت‌ها</label>
+                        <label><input type="checkbox" id="chkShowProjects" checked /> پروژه‌ها</label>
+                        <label><input type="checkbox" id="chkShowContact" checked /> تماس</label>
+                    </div>
+                </div>
+
+                <div class="admin-actions">
+                    <button id="saveBtn" class="btn-save"> ذخیره</button>
+                    <button id="resetBtn" class="btn-reset">↺ بازنشانی</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

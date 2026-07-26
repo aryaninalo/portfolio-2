@@ -1,0 +1,1236 @@
+
+/* 
+   1. تنظیمات پایه و متغیرها
+ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6C3CE1;
+    --primary-light: #8B6FE8;
+    --bg: #0A0A0F;
+    --bg-card: #12121A;
+    --bg-card-hover: #1A1A2E;
+    --text: #E8E8F0;
+    --text-muted: #8888AA;
+    --border: #2A2A3E;
+    --gradient: linear-gradient(135deg, #6C3CE1, #A855F7, #EC4899);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding-top: 80px;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* 
+   2. منو موبایل
+ */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 26px;
+    height: 2.5px;
+    background: var(--text);
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* 
+   3. دکمه مدیریت شناور
+ */
+.floating-admin {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    box-shadow: 0 8px 32px rgba(108, 60, 225, 0.4);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.floating-admin:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 48px rgba(108, 60, 225, 0.6);
+}
+
+/* 
+   4. هدر و ناوبری
+ */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.logo-icon {
+    color: var(--primary-light);
+    font-size: 20px;
+}
+
+.logo-text {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.main-nav {
+    display: flex;
+    gap: 28px;
+}
+
+.main-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+    position: relative;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: 0.3s;
+}
+
+.main-nav a:hover {
+    color: white;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* 
+   5. بخش معرفی (Hero)
+ */
+.hero-section {
+    padding: 60px 0 40px;
+    overflow: hidden;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-text .badge {
+    display: inline-block;
+    background: rgba(108, 60, 225, 0.15);
+    color: var(--primary-light);
+    padding: 4px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    border: 1px solid rgba(108, 60, 225, 0.2);
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-title {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.hero-bio {
+    color: var(--text-muted);
+    font-size: 16px;
+    max-width: 480px;
+    margin-bottom: 28px;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/* دکمه‌ها */
+.btn-primary {
+    background: var(--gradient);
+    color: white;
+    padding: 12px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(108, 60, 225, 0.4);
+}
+
+.btn-outline {
+    border: 2px solid var(--border);
+    color: var(--text);
+    padding: 12px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-outline:hover {
+    border-color: var(--primary-light);
+    color: white;
+    background: rgba(108, 60, 225, 0.1);
+}
+
+/* 
+   6. بخش بصری Hero (آواتار و اشکال)
+ */
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+.hero-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 20px 60px rgba(108, 60, 225, 0.3);
+    border: 3px solid rgba(108, 60, 225, 0.3);
+}
+
+.hero-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shape-circle {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: 2px dashed rgba(108, 60, 225, 0.2);
+    animation: spin 30s linear infinite;
+}
+
+.shape-square {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 2px solid rgba(168, 85, 247, 0.15);
+    transform: rotate(45deg);
+    top: -20px;
+    right: -20px;
+}
+
+.shape-dots {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    bottom: -10px;
+    left: -10px;
+    background-image: radial-gradient(circle, rgba(108, 60, 225, 0.3) 2px, transparent 2px);
+    background-size: 16px 16px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 
+   7. بخش آمار
+ */
+.stats-section {
+    padding: 20px 0 40px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.stat-item {
+    background: var(--bg-card);
+    padding: 24px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.stat-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+}
+
+.stat-number {
+    display: block;
+    font-size: 36px;
+    font-weight: 800;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* 
+   8. بخش‌های عمومی
+ */
+.section-tag {
+    color: var(--primary-light);
+    font-size: 21px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.section-tag.center {
+    text-align: center;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 32px;
+}
+
+.section-title.center {
+    text-align: center;
+}
+
+/* 
+   9. بخش درباره
+ */
+.about-section {
+    padding: 60px 0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.image-frame {
+    background: var(--bg-card);
+    border-radius: 24px;
+    padding: 20px;
+    border: 1px solid var(--border);
+}
+
+.about-avatar {
+    width: 100%;
+    max-width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(108, 60, 225, 0.2);
+    display: block;
+    margin: 0 auto;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.about-text p {
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.about-features {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.about-features span {
+    background: rgba(108, 60, 225, 0.1);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    border: 1px solid rgba(108, 60, 225, 0.15);
+}
+
+/* 
+   10. بخش مهارت‌ها
+ */
+.skills-section {
+    padding: 40px 0 60px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 40px;
+}
+
+.skill-item {
+    display: grid;
+    grid-template-columns: 24px 1fr 2fr;
+    gap: 12px;
+    align-items: center;
+    padding: 8px 0;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+    animation-delay: var(--delay);
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.skill-icon {
+    color: var(--primary-light);
+    font-size: 12px;
+}
+
+.skill-name {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.skill-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+    background: var(--gradient);
+    border-radius: 10px;
+}
+
+/* 
+   11. بخش پروژه‌ها
+ */
+.work-section {
+    padding: 40px 0 60px;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.work-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    transition: 0.4s;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+    animation-delay: var(--delay);
+}
+
+.work-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 12px 40px rgba(108, 60, 225, 0.1);
+    background: var(--bg-card-hover);
+}
+
+.work-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.work-number {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.work-icon {
+    color: var(--primary-light);
+    font-size: 20px;
+}
+
+.work-card h3 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.work-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.work-tag {
+    display: inline-block;
+    background: rgba(108, 60, 225, 0.12);
+    color: var(--primary-light);
+    padding: 2px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* 
+   12. بخش تماس
+ */
+.contact-section {
+    padding: 40px 0 60px;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background: var(--bg-card);
+    border-radius: 24px;
+    padding: 48px;
+    border: 1px solid var(--border);
+}
+
+.contact-info-box h2 {
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.contact-info-box > p {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+}
+
+.contact-icon {
+    color: var(--primary-light);
+}
+
+.contact-social {
+    display: flex;
+    gap: 14px;
+}
+
+.contact-social a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.contact-social a:hover {
+    color: white;
+}
+
+.contact-form-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-placeholder {
+    text-align: center;
+    padding: 40px;
+    border: 2px dashed var(--border);
+    border-radius: 20px;
+    width: 100%;
+}
+
+.form-placeholder span {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-placeholder p {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.form-placeholder small {
+    color: var(--text-muted);
+}
+
+/* 
+   13. فوتر
+ */
+.main-footer {
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.main-footer span {
+    color: #EC4899;
+}
+
+/* 
+   14. پنل مدیریت
+ */
+.admin-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.admin-overlay.hidden {
+    display: none;
+}
+
+.admin-modal {
+    background: var(--bg-card);
+    border-radius: 24px;
+    max-width: 720px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+}
+
+.admin-modal::-webkit-scrollbar {
+    width: 4px;
+}
+.admin-modal::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+.admin-modal::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+.admin-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg-card);
+    border-radius: 24px 24px 0 0;
+    z-index: 5;
+}
+
+.admin-modal-header h2 {
+    font-size: 20px;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0 8px;
+}
+
+.close-modal:hover {
+    color: white;
+    transform: rotate(90deg);
+}
+
+.admin-modal-body {
+    padding: 24px 28px 32px;
+}
+
+.admin-group {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.admin-group:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.admin-group h3 {
+    font-size: 16px;
+    margin-bottom: 14px;
+    color: var(--text);
+}
+
+.admin-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.admin-field {
+    margin-bottom: 10px;
+}
+
+.admin-field label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.admin-field input,
+.admin-field textarea {
+    width: 100%;
+    padding: 10px 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    font-size: 14px;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.admin-field input:focus,
+.admin-field textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(108, 60, 225, 0.15);
+}
+
+.admin-check-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 20px;
+}
+
+.admin-check-grid label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.admin-check-grid input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.btn-save {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 12px 36px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    flex: 1;
+}
+
+.btn-save:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px rgba(108, 60, 225, 0.3);
+}
+
+.btn-reset {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 12px 36px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    flex: 1;
+}
+
+.btn-reset:hover {
+    border-color: var(--text);
+    color: white;
+}
+
+/* 
+   15. پروژه‌ها در پنل مدیریت
+ */
+.project-admin-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-card);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+}
+
+.project-admin-item > div {
+    flex: 1;
+}
+
+.admin-project-title {
+    width: 100%;
+    padding: 8px 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.admin-project-title:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(108, 60, 225, 0.15);
+}
+
+.admin-project-desc {
+    width: 100%;
+    padding: 8px 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: var(--text);
+}
+
+.admin-project-desc:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(108, 60, 225, 0.15);
+}
+
+.btn-remove-project {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s;
+    flex-shrink: 0;
+}
+
+.btn-remove-project:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+#addProjectBtn {
+    width: 100%;
+    padding: 12px;
+    background: var(--gradient);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 8px;
+}
+
+#addProjectBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(108, 60, 225, 0.3);
+}
+
+/* 
+   16. ریسپانسیو (واکنش‌گرایی)
+ */
+
+/* تبلت */
+@media (max-width: 992px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+    .hero-bio {
+        margin: 0 auto 28px;
+        max-width: 100%;
+    }
+    .hero-cta {
+        justify-content: center;
+    }
+    .hero-visual {
+        order: -1;
+    }
+    .hero-avatar {
+        width: 160px;
+        height: 160px;
+    }
+    .shape-circle {
+        width: 220px;
+        height: 220px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+    .about-avatar {
+        max-width: 250px;
+        height: 250px;
+    }
+    .about-features {
+        justify-content: center;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        padding: 32px;
+        gap: 30px;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+    .stat-item {
+        padding: 18px;
+    }
+    .stat-number {
+        font-size: 28px;
+    }
+}
+
+/* موبایل */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        background: var(--bg-card);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 20px 24px;
+        border-bottom: 1px solid var(--border);
+        gap: 14px;
+    }
+    .main-nav.active {
+        display: flex;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    .header-content {
+        position: relative;
+    }
+
+    .hero-section {
+        padding: 30px 0 20px;
+    }
+    .hero-text h1 {
+        font-size: 32px;
+    }
+    .hero-title {
+        font-size: 17px;
+    }
+    .hero-avatar {
+        width: 130px;
+        height: 130px;
+    }
+    .shape-circle {
+        width: 180px;
+        height: 180px;
+    }
+    .shape-square {
+        width: 80px;
+        height: 80px;
+        top: -10px;
+        right: -10px;
+    }
+    .shape-dots {
+        width: 60px;
+        height: 60px;
+        background-size: 12px 12px;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .contact-wrapper {
+        padding: 20px;
+    }
+    .contact-info-box h2 {
+        font-size: 26px;
+    }
+
+    .admin-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+    .admin-check-grid {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+    .admin-modal-body {
+        padding: 16px;
+    }
+    .admin-modal-header {
+        padding: 14px 18px;
+    }
+    .admin-modal-header h2 {
+        font-size: 17px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .stat-item {
+        padding: 14px;
+    }
+    .stat-number {
+        font-size: 22px;
+    }
+    .stat-label {
+        font-size: 12px;
+    }
+
+    .section-title {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .about-text h2 {
+        font-size: 28px;
+    }
+    .about-avatar {
+        max-width: 180px;
+        height: 180px;
+    }
+    .image-frame {
+        padding: 16px;
+    }
+
+    .floating-admin {
+        bottom: 16px;
+        right: 16px;
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+
+    .btn-primary,
+    .btn-outline {
+        padding: 10px 24px;
+        font-size: 14px;
+    }
+    .hero-cta {
+        gap: 10px;
+    }
+
+    .skill-item {
+        grid-template-columns: 20px 1fr 1.5fr;
+        gap: 8px;
+        padding: 4px 0;
+    }
+    .skill-name {
+        font-size: 13px;
+    }
+
+    .admin-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn-save,
+    .btn-reset {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+
+    .project-admin-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn-remove-project {
+        width: 100%;
+    }
+}
+
+/* موبایل کوچک */
+@media (max-width: 400px) {
+    .container {
+        padding: 0 14px;
+    }
+    .hero-text h1 {
+        font-size: 26px;
+    }
+    .hero-avatar {
+        width: 110px;
+        height: 110px;
+    }
+    .shape-circle {
+        width: 150px;
+        height: 150px;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    .stat-item {
+        padding: 12px 8px;
+    }
+    .stat-number {
+        font-size: 20px;
+    }
+    .contact-wrapper {
+        padding: 16px;
+    }
+    .section-title {
+        font-size: 22px;
+    }
+}
+
+
+
